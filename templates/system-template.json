@@ -1,0 +1,14 @@
+{
+    "name": "avant",
+    "title": "Avant Game System",
+    "description": "A modular game system for FoundryVTT using Svelte components.",
+    "version": "1.0.0",
+    "author": "Nassir Isaf",
+    "system": "1.0",
+    "minimumCoreVersion": "9",
+    "compatibleCoreVersion": "10",
+    "packs": [],
+    "dependencies": [],
+    "esmodules": [],
+    "languages": []
+}
