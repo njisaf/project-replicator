@@ -1,0 +1,58 @@
+{
+    "title": "CharacterSheet",
+    "description": "The Character Sheet component for displaying and editing character data in FoundryVTT.",
+    "files": {
+        "implementation": "CharacterSheet.svelte",
+        "types": "CharacterSheet.types.ts",
+        "requirements": "CharacterSheet.spec.md",
+        "bdd": "CharacterSheet.feature",
+        "steps": "CharacterSheet.steps.js",
+        "template": "/dist/templates/characterSheet.html",
+        "styles": "/dist/styles/main.css"
+    },
+    "dependencies": {
+        "modules": [
+            "Button",
+            "Modal"
+        ],
+        "dist": {
+            "system": "/dist/system.json",
+            "scripts": "/dist/scripts/main.js",
+            "template": "/dist/templates/characterSheet.html"
+        }
+    },
+    "creation": {
+        "methodology": "Lean -> BDD -> TDD",
+        "generator": "Manual + Webpack dynamic file splitting",
+        "last_updated": "2024-11-28"
+    },
+    "tests": {
+        "scenarios": [
+            {
+                "name": "Viewing Attributes",
+                "description": "Ensures attributes are displayed correctly.",
+                "steps": [
+                    "Given a character exists with focus = 5",
+                    "When the character sheet is opened",
+                    "Then the focus value should be displayed as 5"
+                ]
+            },
+            {
+                "name": "Editing Attributes",
+                "description": "Ensures attributes can be edited and updates trigger correctly.",
+                "steps": [
+                    "Given a character exists with focus = 5",
+                    "When the user edits the focus value to 10",
+                    "Then the focus value should update to 10"
+                ]
+            }
+        ],
+        "last_run": null,
+        "total_tests": 2
+    },
+    "dist_summary": {
+        "size": "N/A",
+        "path": "/dist",
+        "notes": "CharacterSheet.svelte compiles into the FoundryVTT-compatible template, script, and styles."
+    }
+}

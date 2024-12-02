@@ -1,0 +1,40 @@
+{
+    "compilerOptions": {
+        "types": [
+            "@league-of-foundry-developers/foundry-vtt-types"
+        ],
+        "verbatimModuleSyntax": true,
+        "module": "node16",
+        "moduleResolution": "node16",
+        "esModuleInterop": true,
+        "strictNullChecks": true,
+        "target": "ES2022",
+        "useDefineForClassFields": true,
+        "lib": [
+            "DOM",
+            "ES2022"
+        ],
+        "jsx": "preserve",
+        "allowSyntheticDefaultImports": true,
+        "forceConsistentCasingInFileNames": true,
+        "skipLibCheck": true,
+        "noEmit": true,
+        "strict": true,
+        "allowJs": true,
+        "resolveJsonModule": true,
+        "baseUrl": "./",
+        "paths": {
+            "@components/*": [
+                "src/components/*"
+            ]
+        }
+    },
+    "include": [
+        "src/**/*.ts",
+        "src/**/*.svelte"
+    ],
+    "exclude": [
+        "node_modules",
+        "dist"
+    ]
+}

@@ -1,0 +1,32 @@
+{
+    "project": "Project Replicator",
+    "description": "Modular framework for FoundryVTT systems using Lean -> BDD -> TDD workflows.",
+    "components": [
+        {
+            "name": "CharacterSheet",
+            "path": "/src/components/CharacterSheet",
+            "files": {
+                "implementation": "CharacterSheet.svelte",
+                "types": "CharacterSheet.types.ts",
+                "requirements": "CharacterSheet.spec.md",
+                "bdd": "CharacterSheet.feature",
+                "steps": "CharacterSheet.steps.js",
+                "summary": "CharacterSheet.summary.json"
+            },
+            "dependencies": [
+                "Button",
+                "Modal"
+            ],
+            "dist": {
+                "template": "/dist/templates/characterSheet.html",
+                "scripts": "/dist/scripts/main.js",
+                "styles": "/dist/styles/main.css"
+            }
+        }
+    ],
+    "dist_files": [
+        "/dist/system.json",
+        "/dist/template.json",
+        "/dist/lang/en.json"
+    ]
+}

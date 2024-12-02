@@ -1,0 +1,23 @@
+{
+    "system": {
+        "name": "avant",
+        "title": "Avant TTRPG System",
+        "description": "A minimalist TTRPG system.",
+        "version": "0.1.0",
+        "foundryVersion": "12",
+        "author": "Your Name"
+    },
+    "components": [
+        {
+            "name": "CharacterSheet",
+            "type": "character",
+            "template": "templates/characterSheet.html",
+            "label": "Character Sheet"
+        }
+    ],
+    "paths": {
+        "scripts": "dist/scripts",
+        "styles": "dist/styles",
+        "templates": "dist/templates"
+    }
+}
