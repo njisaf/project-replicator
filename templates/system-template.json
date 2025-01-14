@@ -2,7 +2,7 @@
     "id": "avant",
     "title": "Avant TTRPG System",
     "description": "A game system for FoundryVTT.",
-    "version": "1.0.0",
+    "version": "0.1.1",
     "author": "Rob Athenakis (Author), Nassir Isaf (Foundry Developer)",
     "system": "1.0",
     "minimumCoreVersion": "12",

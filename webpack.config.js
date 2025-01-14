@@ -60,6 +60,7 @@ export default {
                     loader: 'svelte-loader',
                     options: {
                         preprocess: sveltePreprocess(),
+                        emitCss: true, // Enables CSS extraction
                     },
                 },
             },

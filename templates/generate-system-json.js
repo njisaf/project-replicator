@@ -6,37 +6,53 @@ import { fileURLToPath } from 'url';
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 
+// Paths
 const templatePath = path.resolve(__dirname, 'system-template.json');
-const assetsPath = path.resolve(__dirname, '../dist', 'assets.json'); // Location of assets.json
-const outputPath = path.resolve(__dirname, '../dist', 'system.json'); // Output location for system.json
+const assetsPath = path.resolve(__dirname, '../dist', 'assets.json');
+const outputPath = path.resolve(__dirname, '../dist', 'system.json');
 
 async function generateSystemJson() {
     try {
         const template = JSON.parse(fs.readFileSync(templatePath, 'utf-8'));
         const assets = JSON.parse(fs.readFileSync(assetsPath, 'utf-8'));
 
-        // Ensure correct relative paths
-        const normalizePath = (assetPath) => {
-            return assetPath.replace(/^dist\//, ''); // Remove "dist/" prefix
-        };
-
-        // Extract scripts and styles, normalizing paths
-        const scripts = [];
+        // Extract scripts and styles from assets.json
+        const scripts = ["scripts/main.js"]; // Ensure main.js is always included
         const styles = [];
+        const templatePaths = [];
+
         for (const assetName in assets) {
             if (assetName.endsWith('.js')) {
-                scripts.push(normalizePath(`scripts/${path.basename(assetName)}`));
+                scripts.push(`scripts/${assetName}`);
             } else if (assetName.endsWith('.css')) {
-                styles.push(normalizePath(`styles/${path.basename(assetName)}`));
+                styles.push(`styles/${assetName}`);
+            } else if (assetName.endsWith('.html')) {
+                templatePaths.push(`templates/${assetName}`);
             }
         }
 
-        // Add scripts and styles to template
-        template.esmodules = scripts;
-        template.styles = styles;
+        // Generate sheetClasses dynamically (optional, can be skipped if not needed)
+        const sheetClasses = {
+            character: {
+                default: {
+                    label: "Character Sheet",
+                    path: "templates/charactersheet.html",
+                    type: "character",
+                },
+            },
+        };
 
-        // Write final system.json
-        fs.writeFileSync(outputPath, JSON.stringify(template, null, 2));
+        // Merge the generated data into the template
+        const content = {
+            ...template,
+            esmodules: scripts,
+            styles: styles,
+            templatePaths: templatePaths,
+            sheetClasses: sheetClasses, // Add this if needed
+        };
+
+        // Write the final system.json
+        fs.writeFileSync(outputPath, JSON.stringify(content, null, 2));
         console.log('system.json has been generated successfully!');
     } catch (err) {
         console.error('Error generating system.json:', err);
