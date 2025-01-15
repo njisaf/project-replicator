@@ -32,7 +32,10 @@ function generateEntries(baseDir) {
 const entries = generateEntries('./src/components');
 
 export default {
-    entry: entries,
+    entry: {
+        ...entries,
+        'scripts/module/data/character': './src/module/data/character.ts'
+    },
     output: {
         path: path.resolve(__dirname, 'dist'),
         filename: 'scripts/[name].js', // Output JavaScript to scripts folder
