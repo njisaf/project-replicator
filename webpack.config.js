@@ -34,12 +34,18 @@ const entries = generateEntries('./src/components');
 export default {
     entry: {
         ...entries,
-        'scripts/module/data/character': './src/module/data/character.ts'
+        'module/data/character': './src/module/data/character.ts'
     },
     output: {
         path: path.resolve(__dirname, 'dist'),
         filename: 'scripts/[name].js', // Output JavaScript to scripts folder
         publicPath: '/systems/avant/', // Public path for FoundryVTT
+        library: {
+            type: 'module'
+        }
+    },
+    experiments: {
+        outputModule: true
     },
     resolve: {
         // alias: {
