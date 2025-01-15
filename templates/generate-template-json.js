@@ -15,10 +15,31 @@ async function generateTemplateJson() {
         const { components } = await fs.readJSON(configPath);
 
         const content = {
-            Actor: components.reduce((acc, component) => {
-                acc[component.type] = component.template;
-                return acc;
-            }, {})
+            Actor: {
+                types: ["character"],
+                character: {
+                    type: "character",
+                    characterName: "",
+                    level: 1,
+                    attributes: {
+                        focus: 0,
+                        grace: 0,
+                        intellect: 0,
+                        might: 0
+                    },
+                    skills: {
+                        combat: 0,
+                        social: 0,
+                        investigative: 0,
+                        magical: 0
+                    },
+                    health: {
+                        current: 10,
+                        max: 10
+                    },
+                    actionPoints: 3
+                }
+            }
         };
 
         await fs.outputFile(outputPath, JSON.stringify(content, null, 2), 'utf-8');

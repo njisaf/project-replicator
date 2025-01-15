@@ -17,12 +17,15 @@ async function generateSystemJson() {
         const assets = JSON.parse(fs.readFileSync(assetsPath, 'utf-8'));
 
         // Extract scripts and styles from assets.json
-        const scripts = ["scripts/main.js"]; // Ensure main.js is always included
+        const scripts = [
+            "scripts/module/data/character.js",
+            "scripts/main.js"
+        ]; // Ensure correct module load order
         const styles = [];
         const templatePaths = [];
 
         for (const assetName in assets) {
-            if (assetName.endsWith('.js')) {
+            if (assetName.endsWith('.js') && !scripts.includes(`scripts/${assetName}`)) {
                 scripts.push(`scripts/${assetName}`);
             } else if (assetName.endsWith('.css')) {
                 styles.push(`styles/${assetName}`);

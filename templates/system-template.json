@@ -9,14 +9,14 @@
     "compatibleCoreVersion": "12",
     "packs": [],
     "dependencies": [],
-    "esmodules": [],
+    "esmodules": ["scripts/module/data/character.js", "scripts/main.js"],
     "languages": [],
     "actorTypes": ["character"],
     "sheetClasses": {
         "character": {
             "default": {
                 "label": "Character Sheet",
-                "path": "templates/characterSheet.html",
+                "path": "templates/CharacterSheet.html",
                 "type": "character"
             }
         }
