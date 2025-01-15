@@ -1,12 +1,12 @@
-import BaseActor from '@league-of-foundry-developers/foundry-vtt-types/src/foundry/common/documents/actor.mjs';
+/// <reference types="@league-of-foundry-developers/foundry-vtt-types" />
 
 type CharacterSchema = ReturnType<typeof CharacterDataModel.defineSchema>;
 
 /**
  * Defines the data model for Character actors in the Avant system
- * @extends {foundry.abstract.TypeDataModel}
+ * @extends {foundry.abstract.TypeDataModel<CharacterSchema, foundry.documents.BaseActor>}
  */
-export class CharacterDataModel extends foundry.abstract.TypeDataModel<CharacterSchema, BaseActor> {
+export class CharacterDataModel extends foundry.abstract.TypeDataModel<CharacterSchema, foundry.documents.BaseActor> {
     /** @override */
     static defineSchema() {
         const fields = foundry.data.fields;
