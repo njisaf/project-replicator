@@ -18,7 +18,7 @@ async function generateTemplateJson() {
             Actor: components.reduce((acc, component) => {
                 acc[component.type] = component.template;
                 return acc;
-            }, {}),
+            }, {})
         };
 
         await fs.outputFile(outputPath, JSON.stringify(content, null, 2), 'utf-8');

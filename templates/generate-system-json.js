@@ -31,24 +31,12 @@ async function generateSystemJson() {
             }
         }
 
-        // Generate sheetClasses dynamically (optional, can be skipped if not needed)
-        const sheetClasses = {
-            character: {
-                default: {
-                    label: "Character Sheet",
-                    path: "templates/charactersheet.html",
-                    type: "character",
-                },
-            },
-        };
-
         // Merge the generated data into the template
         const content = {
             ...template,
             esmodules: scripts,
             styles: styles,
-            templatePaths: templatePaths,
-            sheetClasses: sheetClasses, // Add this if needed
+            templatePaths: templatePaths.map(path => path.replace('templates/templates/', 'templates/').replace('charactersheet.html', 'characterSheet.html'))
         };
 
         // Write the final system.json
