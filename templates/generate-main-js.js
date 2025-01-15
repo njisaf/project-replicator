@@ -27,7 +27,7 @@ async function generateMainJs() {
             .join('\n');
 
         const content = `
-    import { CharacterDataModel } from "./module/data/character.js";
+    import { CharacterDataModel } from "./scripts/module/data/character.js";
 
     Hooks.once('init', async () => {
       console.log("${system.title} | Initializing ${system.name}");
@@ -35,9 +35,7 @@ async function generateMainJs() {
       // Register actor data model
       CONFIG.Actor.dataModels.character = CharacterDataModel;
       
-      // Register actor data model
-      CONFIG.Actor.dataModels.character = CharacterDataModel;
-      
+      // Register actor sheets
       ${registrations}
     });
   `;
