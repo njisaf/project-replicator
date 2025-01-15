@@ -42,25 +42,10 @@ function generateMainJs() {
     console.log('Generated main.js');
 }
 
-// Generate template.json
-function generateTemplateJson() {
-    const { components } = config;
-
-    const content = {
-        Actor: components.reduce((acc, component) => {
-            acc[component.type] = component.template;
-            return acc;
-        }, {})
-    };
-
-    fs.outputFileSync(TEMPLATE_JSON_PATH, JSON.stringify(content, null, 2), 'utf-8');
-    console.log('Generated template.json');
-}
-
 // Run generators
 function main() {
     generateMainJs();
-    generateTemplateJson(); // system.json now handled by WebpackShellPluginNext
+    // template.json now handled by generate-template-json.js
 }
 
 main();

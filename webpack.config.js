@@ -20,7 +20,7 @@ function generateEntries(baseDir) {
     fs.readdirSync(componentsDir).forEach((dir) => {
         const componentPath = path.join(componentsDir, dir, `${dir}.svelte`);
         if (fs.existsSync(componentPath)) {
-            const name = dir.toLowerCase();
+            const name = dir;
             entries[name] = componentPath;
         }
     });

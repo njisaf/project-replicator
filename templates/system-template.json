@@ -10,5 +10,15 @@
     "packs": [],
     "dependencies": [],
     "esmodules": [],
-    "languages": []
+    "languages": [],
+    "actorTypes": ["character"],
+    "sheetClasses": {
+        "character": {
+            "default": {
+                "label": "Character Sheet",
+                "path": "templates/characterSheet.html",
+                "type": "character"
+            }
+        }
+    }
 }
